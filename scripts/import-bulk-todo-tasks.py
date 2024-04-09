@@ -1,4 +1,6 @@
 # Description: This script reads tasks from a CSV file and imports them into Microsoft To Do using the Microsoft Graph API.
+# References:
+# todoTask API - https://learn.microsoft.com/en-us/graph/api/todotasklist-post-tasks?view=graph-rest-1.0&tabs=http 
 #
 # Steps:
 # 1. Create a CSV file with two columns: Due Date and Task.
@@ -38,7 +40,7 @@ with open(csv_file_path, 'r') as file:
 				"dateTime": "{due_date}",
 				"timeZone": "{time_zone}"
 			}}
-}}' https://graph.microsoft.com/v1.0/users/{user_id}/todo/lists/{tasklist_id}/tasks"""
+		}}' https://graph.microsoft.com/v1.0/users/{user_id}/todo/lists/{tasklist_id}/tasks"""
 
 		# Execute the curl command
 		subprocess.run(command, shell=True)
